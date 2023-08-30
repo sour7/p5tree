@@ -1,3 +1,4 @@
+import p5 from "p5";
 import { ReactP5Wrapper } from "react-p5-wrapper";
 
 const Tree = () => {
@@ -6,12 +7,9 @@ const Tree = () => {
    * @param p  When p5.js starts, the setup function is called once. In this case,
    * it's setting up a canvas with a width and height of 500 pixels.
    */
-  const sketch = (p) => {
-    let angle = p.PI / 4;
-    let slider: {
-      position(arg0: number, arg1: number): number;
-      value: () => number;
-    };
+  const sketch = (p: p5) => {
+    let angle:number = p.PI / 4;
+    let slider: p5.Element;
 
     p.setup = () => {
       p.createCanvas(800, 500);
@@ -26,7 +24,7 @@ const Tree = () => {
       p.background(150);
       p.translate(400, p.height);
       branch(100);
-      angle = slider.value();
+      angle = slider.value() as number;
     };
 
     function branch(len: number) {
