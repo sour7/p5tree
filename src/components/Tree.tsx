@@ -8,7 +8,7 @@ const Tree = () => {
    * it's setting up a canvas with a width and height of 500 pixels.
    */
   const sketch = (p: p5) => {
-    let angle:number = p.PI / 4;
+    let angle: number = p.PI / 4;
     let slider: p5.Element;
 
     p.setup = () => {
@@ -43,6 +43,10 @@ const Tree = () => {
         p.rotate(angle - p.PI / 3);
         branch(len * 0.7);
         p.pop();
+      } else {
+        p.fill(255, 0, 0);
+        p.noStroke();
+        p.circle(0, 0, 3);
       }
     }
   };
